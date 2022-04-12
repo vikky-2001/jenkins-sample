@@ -23,6 +23,6 @@ else {
     result = number1 / number2;
 }
 //add
-
+//
 // display the result
 console.log(`${number1} ${operator} ${number2} = ${result}`);
