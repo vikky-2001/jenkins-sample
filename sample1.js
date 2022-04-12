@@ -1,30 +1,28 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
-var app = express();
+// program for a simple calculator
 
-app.get('/', function(req, res){
-   res.render('form');
-});
+// take the operator input
+const operator = prompt('Enter operator ( either +, -, * or / ): ');
 
-app.set('view engine', 'pug');
-app.set('views', './views');
+// take the operand input
+const number1 = parseFloat(prompt('Enter first number: '));
+const number2 = parseFloat(prompt('Enter second number: '));
 
-// for parsing application/json
-app.use(bodyParser.json()); 
+let result;
 
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-//form-urlencoded
+// using if...else if... else
+if (operator == '+') {
+    result = number1 + number2;
+}
+else if (operator == '-') {
+    result = number1 - number2;
+}
+else if (operator == '*') {
+    result = number1 * number2;
+}
+else {
+    result = number1 / number2;
+}
+//add
 
-// for parsing multipart/form-data
-app.use(upload.array()); 
-app.use(express.static('public'));
-
-//
-app.post('/', function(req, res){
-   console.log(req.body);
-   res.send("recieved your request!");
-});
-app.listen(3000);
+// display the result
+console.log(`${number1} ${operator} ${number2} = ${result}`);
